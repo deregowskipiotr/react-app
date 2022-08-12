@@ -1,0 +1,21 @@
+@import '../../styles/settings.scss';
+
+.cardForm {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.input {
+  padding: 10px;
+  margin: 0 12px 12px 12px;
+  border-radius: 5%;
+}
+
+@media (max-width: 767px) {
+  .columnForm {
+    width: 100%;
+    margin: 0 0 auto 0;
+  }
+}
