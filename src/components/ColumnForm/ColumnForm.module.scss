@@ -4,7 +4,7 @@
   padding: 10px;
   display: flex;
   justify-content: center;
-  
+  align-items: center;
 }
 
 span {
@@ -14,7 +14,13 @@ span {
   
 @media (max-width: 767px) {
   .columnForm {
+    flex-direction: column;
     width: 100%;
     margin: 0 0 $base-size 0;
+   align-items: center;
+  }
+
+  .columnForm button {
+    margin-top: 15px;
   }
 }

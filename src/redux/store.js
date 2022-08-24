@@ -1,6 +1,34 @@
 import { legacy_createStore as createStore } from 'redux';
 import initialState from './initialState';
 import shortid from 'shortid';
+import { strContains } from '../utils/strContains';
+
+
+
+//selectors
+export const getFilteredCards = ({ cards, searchString }, columnId ) => {
+  
+  return cards
+  .filter(card => card.columnId === columnId && strContains(card.title, searchString))};
+
+//export const getAllColumns = ({columns}) => columns;
+
+export const getListById = ({lists}, listId) => lists.find(list => list.id === listId);
+
+export const getAllColumnsByList = ({columns}, listId) => {
+  return (
+    columns.filter(column => column.listId === listId)
+  )
+};
+
+export const getAllLists = state => state.lists;
+
+// action creators
+export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
+
+export const addCard = (payload) => ({type: 'ADD_CARD', payload});
+
+export const updateSearchString = (payload) => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -9,6 +37,11 @@ const reducer = (state, action) => {
     
     case 'ADD_CARD':
       return {...state, cards: [...state.cards, {...action.payload, id: shortid() }]};
+
+      case 'UPDATE_SEARCHSTRING':
+       
+        //console.log(action.payload);
+        return { ...state, searchString: action.payload.searchString };
 
       default:
       return state;
