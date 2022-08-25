@@ -1,23 +1,25 @@
 @import '../../styles/settings.scss';
 
-.cardForm {
-  padding: 10px;
+.listForm {
   display: flex;
   justify-content: center;
-
+  align-items: center;
+  margin-top: 20px;
 }
 
-.input {
+span {
   padding: 10px;
-  margin: 0 12px 12px 12px;
-  border-radius: 5%;
 }
 
 @media (max-width: 767px) {
-  .cardForm {
+  .listForm {
     flex-direction: column;
     width: 100%;
-    margin: 0 0 auto 0;
-    display: block;
+    margin: 0 0 $base-size 0;
+    align-items: center;
+  }
+
+  .listForm button {
+    margin-top: 15px;
   }
 }
