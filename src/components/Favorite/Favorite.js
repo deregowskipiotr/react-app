@@ -1,25 +1,35 @@
 import PageTitle from "../PageTitle/PageTitle"
 import styles from './Favorite.module.scss';
+import { getFavoriteCards } from "../../redux/store";
+import Card from "../Card/Card";
+import { useSelector } from "react-redux/es/exports";
+
 
 
 const Favorite = () => {
 
-  return (
-    <div className={styles.hero}>
+  const favoriteCards = useSelector(getFavoriteCards);
+
+  if (favoriteCards.length === 0) {
+    return ( 
+      <div>
+          <PageTitle>Favorite</PageTitle>
+          <p className={styles.subtitle}>THERE IS NO CARD !!</p>
+      </div>
+    );
+  };
+
+  return(
+    <div>
       <PageTitle>Favorite</PageTitle>
-      <p>
-        Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate
-        elit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum
-      </p>
+      <article className={styles.cardsWrapper}>
+        <ul className={styles.cards}>
+        	{ favoriteCards.map(card => <Card key={card.id} id={card.id} isFavorite={card.isFavorite} title={card.title} />) }
+        </ul>
+      </article>
     </div>
   )
+
 }
 
 export default Favorite;

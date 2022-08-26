@@ -12,3 +12,14 @@
   justify-content: space-between;
   font-weight: bold;
 }
+
+.button_star {
+  border: none;
+  background-color: inherit;
+  color: $color-dark;
+  font-size: 16px;
+}
+
+.active {
+  color:red;
+}
