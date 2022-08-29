@@ -1,4 +1,4 @@
-import { toggleCardFavorite, removeCard} from '../../redux/cardsRedux';
+import { toggleCardFavorite, removeCard } from '../../redux/cardsRedux';
 import styles from './Card.module.scss';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';

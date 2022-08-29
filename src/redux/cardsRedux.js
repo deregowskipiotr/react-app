@@ -9,7 +9,7 @@ export const getFilteredCards = ({ cards, searchString }, columnId ) => {
 
   export const getFavoriteCards = ({ cards }) => {
   return (
-    cards.filter(card => card.isFavorite === true)
+    cards.filter(card => card.isFavorite)
   );
 };
 

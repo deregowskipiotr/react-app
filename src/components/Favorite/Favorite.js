@@ -24,7 +24,7 @@ const Favorite = () => {
       <PageTitle>Favorite</PageTitle>
       <article className={styles.cardsWrapper}>
         <ul className={styles.cards}>
-        	{ favoriteCards.map(card => <Card key={card.id} id={card.id} isFavorite={card.isFavorite} title={card.title} />) }
+        	{ favoriteCards.map(card => <Card key={card.id} {...card} />) }
         </ul>
       </article>
     </div>
